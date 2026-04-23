@@ -159,7 +159,7 @@ const S = {
 
 // ============ COMPONENTS ============
 
-function TopBar({ credits, currentView, onBack, mobileMenuOpen, setMobileMenuOpen }) {
+function TopBar({ credits, currentView, onBack, mobileMenuOpen, setMobileMenuOpen, isMobile }) {
   return (
     <div
       style={{
@@ -252,7 +252,7 @@ function TopBar({ credits, currentView, onBack, mobileMenuOpen, setMobileMenuOpe
             fontSize: 13,
             fontWeight: 600,
             cursor: "pointer",
-            display: window.innerWidth > 600 ? "block" : "none",
+            display: isMobile ? "none" : "block",
           }}
         >
           + Beli Koin
@@ -268,7 +268,7 @@ function TopBar({ credits, currentView, onBack, mobileMenuOpen, setMobileMenuOpe
             cursor: "pointer",
             padding: 4,
             display: "none",
-            ...(window.innerWidth <= 768 ? { display: "flex" } : {}),
+            ...(isMobile ? { display: "flex" } : {}),
           }}
         >
           {mobileMenuOpen ? <Icons.Close /> : <Icons.Menu />}
@@ -1278,7 +1278,7 @@ export default function KreativaApp() {
     >
       <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-      <TopBar credits={credits} currentView={currentView} onBack={handleBack} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
+      <TopBar credits={credits} currentView={currentView} onBack={handleBack} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} isMobile={isMobile} />
 
       {!isMobile && <Sidebar currentView={currentView} onNavigate={setCurrentView} />}
 
