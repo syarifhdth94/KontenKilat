@@ -210,7 +210,7 @@ function TopBar({ credits, currentView, onBack, mobileMenuOpen, setMobileMenuOpe
               color: "#fff",
             }}
           >
-            KontenKilat
+            KK
           </div>
           <span
             style={{
